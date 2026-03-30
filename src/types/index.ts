@@ -1,16 +1,3 @@
-// === Severity & Interactions ===
-export type Severity = 'contraindicated' | 'major' | 'moderate' | 'minor' | 'none' | 'unknown';
-
-export interface DrugInteraction {
-  drug1: string;
-  drug2: string;
-  severity: Severity;
-  mechanism: string | null;
-  clinicalEffect: string | null;
-  source: 'OpenFDA' | 'RxNorm' | 'DrugBank' | 'unknown';
-  sourceUrl?: string;
-}
-
 // === Dosage ===
 export type DosageUnit = 'mg/kg' | 'mcg/kg' | 'mg/kg/h' | 'mcg/kg/min' | 'mcg/kg/h';
 export type DosageContext = 'induction' | 'maintenance' | 'sedation' | 'analgesia';
@@ -50,7 +37,6 @@ export interface ChecklistState {
 export interface Drug {
   name: string;
   aliases: string[];
-  rxcui?: string;
   category: string;
 }
 

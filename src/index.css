@@ -2,12 +2,6 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-severity-contraindicated: #dc2626;
-  --color-severity-major: #ea580c;
-  --color-severity-moderate: #f59e0b;
-  --color-severity-minor: #eab308;
-  --color-severity-none: #16a34a;
-  --color-severity-unknown: #6b7280;
 }
 
 @variant dark (&:where(.dark, .dark *));
