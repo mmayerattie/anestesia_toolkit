@@ -41,21 +41,24 @@ export default function Layout() {
 
       {/* Main content area */}
       <div className="flex-1 flex flex-col min-h-dvh md:ml-[220px]">
-        {/* Mobile header with hamburger */}
-        <header className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 md:hidden shrink-0">
-          <button
-            type="button"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Abrir menu"
-            className="p-2 -ml-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
-          >
-            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-          <h1 className="text-base font-bold tracking-tight text-gray-800 dark:text-gray-100">
-            Alexia Anestesia
-          </h1>
+        {/* Mobile header with hamburger + theme toggle */}
+        <header className="flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 md:hidden shrink-0">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Abrir menu"
+              className="p-2 -ml-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+            >
+              <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <h1 className="text-base font-bold tracking-tight text-gray-800 dark:text-gray-100">
+              Alexia Anestesia
+            </h1>
+          </div>
+          <ThemeToggle />
         </header>
 
         <Disclaimer />
@@ -71,11 +74,17 @@ export default function Layout() {
 function SidebarContent({ onNavigate }: { onNavigate: () => void }) {
   return (
     <div className="flex flex-col h-full">
-      <div className="px-5 py-5 border-b border-gray-100 dark:border-gray-700">
-        <h1 className="text-base font-bold tracking-tight text-gray-800 dark:text-gray-100">
-          Alexia Anestesia
-        </h1>
-        <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Referencia clinica rapida</p>
+      <div className="flex items-center justify-between px-5 py-5 border-b border-gray-100 dark:border-gray-700">
+        <div>
+          <h1 className="text-base font-bold tracking-tight text-gray-800 dark:text-gray-100">
+            Alexia Anestesia
+          </h1>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Referencia clinica rapida</p>
+        </div>
+        {/* Theme toggle visible on desktop sidebar too */}
+        <div className="hidden md:block">
+          <ThemeToggle />
+        </div>
       </div>
 
       <nav className="flex-1 px-3 py-4 space-y-1">
@@ -96,10 +105,6 @@ function SidebarContent({ onNavigate }: { onNavigate: () => void }) {
           </NavLink>
         ))}
       </nav>
-
-      <div className="px-3 py-4 border-t border-gray-100 dark:border-gray-700">
-        <ThemeToggle />
-      </div>
     </div>
   )
 }
