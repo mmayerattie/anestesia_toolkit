@@ -151,7 +151,7 @@ export default function ChecklistPage() {
     setConfirmDialog({
       title: 'Resetear para nuevo paciente',
       message:
-        'Se desmarcarán todos los ítems del checklist. La estructura y los ítems personalizados se mantendrán.',
+        'Se desmarcaran todos los items del checklist. La estructura y los items personalizados se mantendran.',
       confirmLabel: 'Resetear',
       confirmClass:
         'bg-amber-500 hover:bg-amber-600 focus:ring-amber-500 text-white',
@@ -166,7 +166,7 @@ export default function ChecklistPage() {
     setConfirmDialog({
       title: 'Restaurar checklist original',
       message:
-        'Se eliminarán todos los ítems personalizados y se restaurará el checklist original de 23 ítems. Todos los checks se desmarcarán. Esta acción no se puede deshacer.',
+        'Se eliminaran todos los items personalizados y se restaurara el checklist original de 23 items. Todos los checks se desmarcaran. Esta accion no se puede deshacer.',
       confirmLabel: 'Restaurar original',
       confirmClass:
         'bg-red-600 hover:bg-red-700 focus:ring-red-500 text-white',
@@ -183,35 +183,35 @@ export default function ChecklistPage() {
     <div className="max-w-2xl mx-auto px-4 py-6 space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+        <h1 className="text-xl font-bold text-stone-800 dark:text-stone-100">
           Checklist pre-anestesia
         </h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-          Verificación sistemática antes de cada procedimiento
+        <p className="text-[13px] text-stone-500 dark:text-stone-400 mt-1">
+          Verificacion sistematica antes de cada procedimiento
         </p>
       </div>
 
       {/* Progress bar */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-4">
+      <div className="bg-white dark:bg-[#1a1b25] rounded-xl shadow-sm shadow-stone-200/30 dark:shadow-black/10 p-4">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+          <span className="text-[13px] font-medium text-stone-700 dark:text-stone-300">
             {stats.checked}/{stats.total} completados
           </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
+          <span className="text-[13px] text-stone-500 dark:text-stone-400">
             {stats.percent}%
           </span>
         </div>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+        <div className="w-full bg-stone-200 dark:bg-stone-800 rounded-full h-2.5">
           <div
             className={`h-2.5 rounded-full transition-all duration-300 ${
               stats.percent === 100
                 ? 'bg-emerald-500'
-                : 'bg-blue-500'
+                : 'bg-teal-500'
             }`}
             style={{ width: `${stats.percent}%` }}
           />
         </div>
-        <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+        <div className="mt-2 text-[13px] text-stone-500 dark:text-stone-400">
           Obligatorios: {stats.requiredChecked}/{stats.requiredTotal} completados
           {stats.requiredChecked < stats.requiredTotal && (
             <span className="text-red-500 dark:text-red-400 ml-1 font-medium">
@@ -243,13 +243,13 @@ export default function ChecklistPage() {
               return (
                 <div
                   key={category}
-                  className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 overflow-hidden"
+                  className="bg-white dark:bg-[#16171f] rounded-xl shadow-sm shadow-stone-200/30 dark:shadow-black/10 overflow-hidden"
                 >
                   {/* Category header */}
                   <button
                     type="button"
                     onClick={() => toggleCategory(category)}
-                    className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                    className="w-full flex items-center justify-between px-4 py-3 hover:bg-stone-50 dark:hover:bg-white/5 transition-colors"
                     aria-expanded={!isCollapsed}
                   >
                     <div className="flex items-center gap-2">
@@ -263,17 +263,17 @@ export default function ChecklistPage() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className={`text-gray-400 dark:text-gray-500 transition-transform ${
+                        className={`text-stone-400 dark:text-stone-500 transition-transform ${
                           isCollapsed ? '' : 'rotate-90'
                         }`}
                       >
                         <polyline points="9 18 15 12 9 6" />
                       </svg>
-                      <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                      <span className="text-[12px] font-semibold uppercase tracking-widest text-stone-400 dark:text-stone-500">
                         {category}
                       </span>
                     </div>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 tabular-nums">
+                    <span className="text-[12px] text-stone-400 dark:text-stone-500 tabular-nums">
                       {categoryChecked}/{categoryTotal}
                     </span>
                   </button>
@@ -300,9 +300,9 @@ export default function ChecklistPage() {
       </DndContext>
 
       {/* Add item form */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 p-4 space-y-3">
-        <h2 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-          Agregar ítem
+      <div className="bg-white dark:bg-[#1a1b25] rounded-xl shadow-sm shadow-stone-200/30 dark:shadow-black/10 p-4 space-y-3">
+        <h2 className="text-[12px] font-semibold uppercase tracking-widest text-stone-400 dark:text-stone-500">
+          Agregar item
         </h2>
         <div className="flex flex-col sm:flex-row gap-2">
           <input
@@ -310,13 +310,13 @@ export default function ChecklistPage() {
             value={newLabel}
             onChange={(e) => setNewLabel(e.target.value)}
             onKeyDown={handleKeyDownAdd}
-            placeholder="Descripción del ítem..."
-            className="flex-1 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+            placeholder="Descripcion del item..."
+            className="flex-1 px-3 py-2 text-sm border border-stone-200 dark:border-stone-700 rounded-xl bg-white dark:bg-[#16171f] text-stone-800 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-600 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-500"
           />
           <select
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
-            className="px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+            className="px-3 py-2 text-sm border border-stone-200 dark:border-stone-700 rounded-xl bg-white dark:bg-[#16171f] text-stone-800 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-500"
           >
             {CATEGORIES.map((cat) => (
               <option key={cat} value={cat}>
@@ -331,9 +331,9 @@ export default function ChecklistPage() {
               type="checkbox"
               checked={newRequired}
               onChange={(e) => setNewRequired(e.target.checked)}
-              className="w-4 h-4 rounded border-gray-300 dark:border-gray-500 text-blue-600 focus:ring-blue-500 accent-blue-600"
+              className="w-4 h-4 rounded border-stone-300 dark:border-stone-600 focus:ring-teal-500 accent-teal-600"
             />
-            <span className="text-sm text-gray-700 dark:text-gray-300">
+            <span className="text-sm text-stone-700 dark:text-stone-300">
               Obligatorio
             </span>
           </label>
@@ -341,7 +341,7 @@ export default function ChecklistPage() {
             type="button"
             onClick={handleAddItem}
             disabled={!newLabel.trim()}
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+            className="px-4 py-2 text-sm font-medium text-white bg-teal-600 hover:bg-teal-700 disabled:opacity-40 disabled:cursor-not-allowed rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:focus:ring-offset-[#0f1117]"
           >
             Agregar
           </button>
@@ -353,14 +353,14 @@ export default function ChecklistPage() {
         <button
           type="button"
           onClick={requestReset}
-          className="flex-1 px-4 py-2.5 text-sm font-medium text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/50 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+          className="flex-1 px-4 py-2.5 text-sm font-medium text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 rounded-xl hover:bg-amber-100 dark:hover:bg-amber-900/50 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:focus:ring-offset-[#0f1117]"
         >
           Resetear para nuevo paciente
         </button>
         <button
           type="button"
           onClick={requestRestore}
-          className="flex-1 px-4 py-2.5 text-sm font-medium text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+          className="flex-1 px-4 py-2.5 text-sm font-medium text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-900/30 border border-red-300 dark:border-red-700 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:focus:ring-offset-[#0f1117]"
         >
           Restaurar checklist original
         </button>
@@ -376,30 +376,30 @@ export default function ChecklistPage() {
           aria-labelledby="confirm-dialog-title"
         >
           <div
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-sm w-full p-6 space-y-4"
+            className="bg-white dark:bg-[#1a1b25] rounded-2xl shadow-xl max-w-sm w-full p-6 space-y-4"
             onClick={(e) => e.stopPropagation()}
           >
             <h3
               id="confirm-dialog-title"
-              className="text-lg font-semibold text-gray-900 dark:text-gray-100"
+              className="text-lg font-semibold text-stone-800 dark:text-stone-100"
             >
               {confirmDialog.title}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-stone-600 dark:text-stone-400">
               {confirmDialog.message}
             </p>
             <div className="flex gap-3 justify-end">
               <button
                 type="button"
                 onClick={() => setConfirmDialog(null)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+                className="px-4 py-2 text-sm font-medium text-stone-700 dark:text-stone-300 bg-stone-100 dark:bg-stone-800 rounded-xl hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:focus:ring-offset-[#1a1b25]"
               >
                 Cancelar
               </button>
               <button
                 type="button"
                 onClick={confirmDialog.onConfirm}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800 ${confirmDialog.confirmClass}`}
+                className={`px-4 py-2 text-sm font-medium rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-[#1a1b25] ${confirmDialog.confirmClass}`}
               >
                 {confirmDialog.confirmLabel}
               </button>

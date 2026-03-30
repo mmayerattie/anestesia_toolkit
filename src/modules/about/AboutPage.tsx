@@ -2,50 +2,50 @@ export default function AboutPage() {
   return (
     <div className="max-w-2xl mx-auto space-y-8">
       <header>
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+        <h1 className="text-xl font-bold text-stone-800 dark:text-stone-100">
           Acerca de Alexia Anestesia
         </h1>
-        <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed">
+        <p className="mt-2 text-[14px] text-stone-600 dark:text-stone-400 leading-relaxed">
           Alexia Anestesia es una herramienta de consulta rapida pensada para profesionales de
           anestesiologia. Permite acceder en segundos a informacion farmacologica esencial
           durante la practica clinica diaria.
         </p>
       </header>
 
-      {/* Qué hace */}
+      {/* Que hace */}
       <section>
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">
+        <h2 className="text-[15px] font-semibold text-stone-700 dark:text-stone-200 mb-3">
           Que ofrece esta herramienta
         </h2>
-        <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <ul className="space-y-3 text-[14px] text-stone-600 dark:text-stone-400 leading-relaxed">
           <li className="flex items-start gap-3">
-            <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-blue-500" />
+            <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-teal-400" />
             <span>
-              <strong>Vademecum anestesico:</strong> Fichas de referencia de 23 farmacos de uso habitual
+              <strong className="text-stone-700 dark:text-stone-200">Vademecum anestesico:</strong> Fichas de referencia de 23 farmacos de uso habitual
               en anestesia, con datos de farmacocinetica, diluciones estandar, contraindicaciones
               y preparacion practica para el quirofano.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-blue-500" />
+            <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-teal-400" />
             <span>
-              <strong>Calculadora de dosis por peso:</strong> Calculo automatico de rangos de dosis
+              <strong className="text-stone-700 dark:text-stone-200">Calculadora de dosis por peso:</strong> Calculo automatico de rangos de dosis
               segun el peso del paciente, con alertas de dosis maxima absoluta y advertencias
               clinicas relevantes.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-blue-500" />
+            <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-teal-400" />
             <span>
-              <strong>Conversor de unidades clinicas:</strong> Conversiones rapidas de masa,
+              <strong className="text-stone-700 dark:text-stone-200">Conversor de unidades clinicas:</strong> Conversiones rapidas de masa,
               infusiones IV (mcg/kg/min a mL/h), presion, temperatura y volumen, mostrando
               la formula utilizada para verificacion.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-blue-500" />
+            <span className="shrink-0 mt-1 w-1.5 h-1.5 rounded-full bg-teal-400" />
             <span>
-              <strong>Checklist pre-anestesia:</strong> Lista de verificacion personalizable
+              <strong className="text-stone-700 dark:text-stone-200">Checklist pre-anestesia:</strong> Lista de verificacion personalizable
               con los items estandar de evaluacion preoperatoria, equipo, farmacos y plan
               anestesico.
             </span>
@@ -55,17 +55,17 @@ export default function AboutPage() {
 
       {/* Origen de los datos */}
       <section>
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">
+        <h2 className="text-[15px] font-semibold text-stone-700 dark:text-stone-200 mb-3">
           Origen de los datos
         </h2>
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+        <p className="text-[14px] text-stone-600 dark:text-stone-400 leading-relaxed mb-4">
           Todos los datos farmacologicos presentados en esta aplicacion provienen de textos de
           referencia reconocidos internacionalmente en anestesiologia y farmacologia clinica.
           No se utiliza inteligencia artificial generativa para producir contenido clinico.
           La informacion se presenta tal como figura en las fuentes originales.
         </p>
 
-        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+        <div className="rounded-xl bg-white dark:bg-[#1a1b25] shadow-sm shadow-stone-200/30 dark:shadow-black/10 divide-y divide-stone-50 dark:divide-stone-800">
           <Citation
             title="Miller's Anesthesia"
             detail="Miller RD, Cohen NH, Eriksson LI, Fleisher LA, Wiener-Kronish JP, Young WL, eds."
@@ -93,7 +93,7 @@ export default function AboutPage() {
 
       {/* Limitaciones */}
       <section>
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">
+        <h2 className="text-[15px] font-semibold text-stone-700 dark:text-stone-200 mb-3">
           Limitaciones importantes
         </h2>
         <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-5">
@@ -119,12 +119,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Técnico */}
+      {/* Tecnico */}
       <section className="pb-8">
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">
+        <h2 className="text-[15px] font-semibold text-stone-700 dark:text-stone-200 mb-3">
           Informacion tecnica
         </h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        <p className="text-[14px] text-stone-500 dark:text-stone-500 leading-relaxed">
           Alexia Anestesia funciona completamente en el navegador. No almacena datos de
           pacientes ni envia informacion a servidores externos. Los datos de configuracion
           (checklist personalizado, ultimo peso utilizado, preferencias de tema) se guardan
@@ -149,10 +149,10 @@ function Citation({
 }) {
   return (
     <div className="px-5 py-4">
-      <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">{title}</p>
-      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{detail}</p>
-      <p className="text-xs text-gray-500 dark:text-gray-400">{edition}</p>
-      <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+      <p className="text-[14px] font-semibold text-stone-800 dark:text-stone-100">{title}</p>
+      <p className="text-[12px] text-stone-400 dark:text-stone-500 mt-0.5">{detail}</p>
+      <p className="text-[12px] text-stone-400 dark:text-stone-500">{edition}</p>
+      <p className="text-[14px] text-stone-600 dark:text-stone-400 mt-2 leading-relaxed">
         {usage}
       </p>
     </div>

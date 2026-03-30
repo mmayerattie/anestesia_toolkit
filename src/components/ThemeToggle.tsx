@@ -10,14 +10,13 @@ export default function ThemeToggle() {
       aria-checked={isDark}
       aria-label={isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors min-h-[44px] ${
+      className={`relative inline-flex h-6 w-14 items-center rounded-full transition-colors min-h-[44px] ${
         isDark ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
       }`}
     >
-      {/* Sliding knob */}
       <span
-        className={`inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white shadow-sm transition-transform ${
-          isDark ? 'translate-x-5.5' : 'translate-x-1'
+        className={`inline-flex h-4 w-4 items-center justify-center rounded-full bg-white shadow-sm transition-transform duration-200 ${
+          isDark ? 'translate-x-9' : 'translate-x-1'
         }`}
       >
         {isDark ? (

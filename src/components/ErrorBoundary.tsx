@@ -27,17 +27,17 @@ export default class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-dvh flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <div className="min-h-dvh flex flex-col bg-stone-50 dark:bg-[#0f1117] text-stone-800 dark:text-stone-200">
           <Disclaimer />
           <main className="flex-1 flex items-center justify-center p-8">
             <div className="text-center max-w-md">
               <h1 className="text-xl font-bold mb-4">Error inesperado</h1>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <p className="text-stone-500 dark:text-stone-400 mb-6">
                 Ocurrio un error en la aplicacion. Recargue la pagina para continuar.
               </p>
               <button
                 onClick={() => window.location.reload()}
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors min-h-[44px]"
+                className="px-6 py-3 bg-teal-600 text-white rounded-xl hover:bg-teal-700 transition-colors min-h-[44px] font-medium"
               >
                 Recargar pagina
               </button>

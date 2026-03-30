@@ -10,14 +10,14 @@ interface ChecklistItemProps {
 }
 
 const categoryColors: Record<string, string> = {
-  Paciente: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300',
-  Equipo: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300',
-  'Fármacos': 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300',
-  Plan: 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300',
+  Paciente: 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+  Equipo: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
+  'Fármacos': 'bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
+  Plan: 'bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300',
 }
 
 function getCategoryBadgeClass(category: string): string {
-  return categoryColors[category] ?? 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+  return categoryColors[category] ?? 'bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300'
 }
 
 export default function ChecklistItemRow({
@@ -45,17 +45,17 @@ export default function ChecklistItemRow({
       ref={setNodeRef}
       style={style}
       className={`
-        flex items-center gap-3 px-3 py-2 min-h-[44px] rounded-lg
-        border bg-white dark:bg-gray-800
-        ${item.required ? 'border-l-4 border-l-red-500 border-t border-r border-b border-t-gray-200 border-r-gray-200 border-b-gray-200 dark:border-t-gray-600 dark:border-r-gray-600 dark:border-b-gray-600' : 'border-gray-200 dark:border-gray-600'}
+        flex items-center gap-3 px-3 py-2 min-h-[44px] rounded-xl
+        bg-white dark:bg-[#1a1b25] shadow-sm shadow-stone-200/30 dark:shadow-black/10
+        ${item.required ? 'border-l-4 border-l-red-400' : ''}
         ${isDragging ? 'opacity-50 shadow-lg z-10' : ''}
-        ${checked ? 'bg-gray-50 dark:bg-gray-800/60' : ''}
+        ${checked ? 'bg-stone-50 dark:bg-[#1a1b25]/60' : ''}
       `}
     >
       {/* Drag handle */}
       <button
         type="button"
-        className="flex-shrink-0 cursor-grab active:cursor-grabbing touch-none text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+        className="flex-shrink-0 cursor-grab active:cursor-grabbing touch-none text-stone-300 dark:text-stone-600 hover:text-stone-500 dark:hover:text-stone-400 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label="Arrastrar para reordenar"
         {...attributes}
         {...listeners}
@@ -86,7 +86,7 @@ export default function ChecklistItemRow({
           type="checkbox"
           checked={checked}
           onChange={() => onToggle(item.id)}
-          className="w-5 h-5 rounded border-gray-300 dark:border-gray-500 text-blue-600 focus:ring-blue-500 focus:ring-2 cursor-pointer accent-blue-600"
+          className="w-5 h-5 rounded border-stone-300 dark:border-stone-600 focus:ring-teal-500 focus:ring-2 cursor-pointer accent-teal-600"
           aria-label={item.label}
         />
       </label>
@@ -94,15 +94,15 @@ export default function ChecklistItemRow({
       {/* Label and category badge */}
       <div className="flex-1 min-w-0 flex flex-wrap items-center gap-2">
         <span
-          className={`text-sm leading-tight ${
+          className={`text-[14px] leading-tight ${
             checked
-              ? 'line-through text-gray-400 dark:text-gray-500'
-              : 'text-gray-900 dark:text-gray-100'
+              ? 'line-through text-stone-300 dark:text-stone-600'
+              : 'text-stone-700 dark:text-stone-200'
           }`}
         >
           {item.label}
           {item.required && (
-            <span className="text-red-500 ml-0.5" aria-label="obligatorio">
+            <span className="text-red-400 ml-0.5" aria-label="obligatorio">
               *
             </span>
           )}
@@ -118,7 +118,7 @@ export default function ChecklistItemRow({
       <button
         type="button"
         onClick={() => onRemove(item.id)}
-        className="flex-shrink-0 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-red-500 dark:hover:text-red-400 rounded transition-colors"
+        className="flex-shrink-0 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-stone-300 dark:text-stone-600 hover:text-red-400 dark:hover:text-red-400 rounded transition-colors"
         aria-label={`Eliminar: ${item.label}`}
       >
         <svg

@@ -18,7 +18,7 @@ function normalize(str: string): string {
 export default function DrugInput({
   drugs,
   onSelect,
-  placeholder = 'Buscar fármaco...',
+  placeholder = 'Buscar farmaco...',
   excludeNames = [],
 }: DrugInputProps) {
   const [query, setQuery] = useState('')
@@ -101,13 +101,13 @@ export default function DrugInput({
         onFocus={() => query.trim() && setOpen(true)}
         onBlur={() => setTimeout(() => setOpen(false), 200)}
         placeholder={placeholder}
-        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-base focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+        className="w-full px-3.5 py-2.5 border border-stone-200 dark:border-stone-700 rounded-xl bg-white dark:bg-stone-800/60 text-[15px] text-stone-800 dark:text-stone-200 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-400 dark:focus:ring-teal-500/30 dark:focus:border-teal-600 transition-shadow"
       />
       {open && results.length > 0 && (
         <ul
           ref={listRef}
           role="listbox"
-          className="absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+          className="absolute z-50 w-full mt-1.5 bg-white dark:bg-stone-800 border border-stone-200/80 dark:border-stone-700 rounded-xl shadow-lg shadow-stone-200/50 dark:shadow-black/30 max-h-60 overflow-y-auto"
         >
           {results.map((drug, i) => (
             <li
@@ -115,19 +115,19 @@ export default function DrugInput({
               role="option"
               aria-selected={i === highlightIdx}
               onMouseDown={() => select(drug)}
-              className={`px-3 py-2 cursor-pointer text-sm ${
+              className={`px-3.5 py-2.5 cursor-pointer text-sm transition-colors first:rounded-t-xl last:rounded-b-xl ${
                 i === highlightIdx
-                  ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-                  : 'hover:bg-gray-50 dark:hover:bg-gray-700'
+                  ? 'bg-teal-50 dark:bg-teal-900/20 text-teal-800 dark:text-teal-300'
+                  : 'text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-700/50'
               }`}
             >
               <span className="font-medium">{drug.name}</span>
               {drug.aliases.length > 0 && (
-                <span className="ml-2 text-gray-400 text-xs">
+                <span className="ml-2 text-stone-400 dark:text-stone-500 text-xs">
                   {drug.aliases.slice(0, 2).join(', ')}
                 </span>
               )}
-              <span className="ml-2 text-gray-400 text-xs italic">{drug.category}</span>
+              <span className="ml-2 text-stone-400 dark:text-stone-500 text-[11px] italic">{drug.category}</span>
             </li>
           ))}
         </ul>

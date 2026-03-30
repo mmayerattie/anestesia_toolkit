@@ -30,7 +30,7 @@ function getCategoryColor(category: string): string {
   for (const [k, v] of Object.entries(categoryColors)) {
     if (normalize(k) === key) return v
   }
-  return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+  return 'bg-stone-100 text-stone-800 dark:bg-stone-700 dark:text-stone-300'
 }
 
 export default function DrugCardPreview({ card, onSelect }: DrugCardPreviewProps) {
@@ -38,27 +38,27 @@ export default function DrugCardPreview({ card, onSelect }: DrugCardPreviewProps
     <button
       type="button"
       onClick={() => onSelect(card)}
-      className="w-full text-left rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-sm hover:shadow-md hover:border-blue-300 dark:hover:border-blue-600 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 active:scale-[0.98]"
+      className="w-full text-left rounded-xl bg-white dark:bg-[#1a1b25] p-4 shadow-sm shadow-stone-200/40 dark:shadow-black/20 hover:shadow-md hover:shadow-stone-200/60 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 active:scale-[0.98]"
       style={{ minHeight: '44px' }}
     >
       <div className="flex items-start justify-between gap-2 mb-2">
-        <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 leading-tight">
+        <h3 className="text-[15px] font-semibold text-stone-800 dark:text-stone-100 leading-tight">
           {card.name}
         </h3>
         <span
-          className={`shrink-0 inline-block rounded-full px-2 py-0.5 text-xs font-medium ${getCategoryColor(card.category)}`}
+          className={`shrink-0 inline-block rounded-full px-2 py-0.5 text-[11px] font-medium ${getCategoryColor(card.category)}`}
         >
           {card.category}
         </span>
       </div>
-      <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
+      <div className="flex items-center gap-3 text-[12px] text-stone-400 dark:text-stone-500">
         <span>
-          <span className="font-medium text-gray-600 dark:text-gray-300">Inicio:</span>{' '}
+          <span className="font-medium text-stone-500 dark:text-stone-400">Inicio:</span>{' '}
           {card.onset}
         </span>
-        <span className="text-gray-300 dark:text-gray-600">|</span>
+        <span className="text-stone-300 dark:text-stone-600">|</span>
         <span>
-          <span className="font-medium text-gray-600 dark:text-gray-300">Duracion:</span>{' '}
+          <span className="font-medium text-stone-500 dark:text-stone-400">Duracion:</span>{' '}
           {card.duration}
         </span>
       </div>

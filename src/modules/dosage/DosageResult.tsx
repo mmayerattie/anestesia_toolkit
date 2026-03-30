@@ -66,41 +66,41 @@ export default function DosageResult({ drugName, weight, dosageRange }: DosageRe
   const weightWarning = weight < 30 || weight > 150
 
   return (
-    <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-sm">
+    <div className="rounded-xl bg-white dark:bg-[#1a1b25] shadow-sm shadow-stone-200/40 dark:shadow-black/20 p-5">
       {/* Header */}
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+      <h3 className="text-[17px] font-semibold text-stone-800 dark:text-stone-100">
         {drugName} — {contextLabels[context] ?? context} {routeLabels[route] ?? route}
       </h3>
 
       {/* Dose range */}
-      <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+      <p className="mt-1 text-[13px] text-stone-400 dark:text-stone-500">
         Rango: {fmt(minDose)} – {fmt(maxDose)} {unit}
       </p>
 
       {/* Weight */}
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-[13px] text-stone-400 dark:text-stone-500">
         Peso: {fmt(weight)} kg
       </p>
 
       {/* Separator */}
-      <div className="my-3 border-t border-gray-200 dark:border-gray-700" />
+      <div className="my-3 border-t border-stone-100 dark:border-stone-800/50" />
 
       {/* Calculated result */}
       {isInfusion ? (
         <div className="space-y-1">
-          <p className="text-base font-medium text-gray-900 dark:text-gray-100">
+          <p className="text-[15px] font-semibold text-stone-800 dark:text-stone-100">
             Tasa minima: {fmt(minCalc)} {rUnit}
           </p>
-          <p className="text-base font-medium text-gray-900 dark:text-gray-100">
+          <p className="text-[15px] font-semibold text-stone-800 dark:text-stone-100">
             Tasa maxima: {fmt(maxCalc)} {rUnit}
           </p>
         </div>
       ) : (
         <div className="space-y-1">
-          <p className="text-base font-medium text-gray-900 dark:text-gray-100">
+          <p className="text-[15px] font-semibold text-stone-800 dark:text-stone-100">
             Dosis minima: {fmt(minCalc)} {rUnit}
           </p>
-          <p className="text-base font-medium text-gray-900 dark:text-gray-100">
+          <p className="text-[15px] font-semibold text-stone-800 dark:text-stone-100">
             Dosis maxima: {fmt(maxCalc)} {rUnit}
           </p>
         </div>
@@ -108,7 +108,7 @@ export default function DosageResult({ drugName, weight, dosageRange }: DosageRe
 
       {/* Absolute max warning */}
       {exceedsAbsoluteMax && maxAbsoluteDose != null && (
-        <div className="mt-3 rounded-md bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 p-3">
+        <div className="mt-3 rounded-lg bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 p-3">
           <p className="text-sm font-medium text-red-800 dark:text-red-300">
             La dosis maxima calculada ({fmt(maxCalc)} {rUnit}) excede la dosis
             maxima absoluta de {fmt(maxAbsoluteDose)}{' '}
@@ -120,7 +120,7 @@ export default function DosageResult({ drugName, weight, dosageRange }: DosageRe
 
       {/* Weight warning */}
       {weightWarning && (
-        <div className="mt-3 rounded-md bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 p-3">
+        <div className="mt-3 rounded-lg bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 p-3">
           <p className="text-sm font-medium text-amber-800 dark:text-amber-300">
             Peso fuera del rango habitual. Verificar dosis calculada.
           </p>
@@ -129,15 +129,15 @@ export default function DosageResult({ drugName, weight, dosageRange }: DosageRe
 
       {/* Notes */}
       {notes && (
-        <div className="mt-3 rounded-md bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 p-3">
-          <p className="text-sm text-blue-800 dark:text-blue-300">
+        <div className="mt-3 rounded-lg bg-teal-50 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-800 p-3">
+          <p className="text-sm text-teal-800 dark:text-teal-300">
             <span className="font-medium">Nota:</span> {notes}
           </p>
         </div>
       )}
 
       {/* Reference */}
-      <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
+      <p className="mt-3 text-[11px] text-stone-400 dark:text-stone-500">
         <span className="font-medium">Fuente:</span> {reference}
       </p>
     </div>

@@ -108,24 +108,24 @@ export default function DosagePage() {
   }
 
   return (
-    <div className="mx-auto max-w-lg px-4 py-6">
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+    <div className="mx-auto max-w-xl px-4 py-6">
+      <h1 className="text-xl font-bold text-stone-800 dark:text-stone-100 mb-6">
         Calculadora de dosis
       </h1>
 
       {/* Drug selector */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        <label className="block text-[13px] font-medium text-stone-500 dark:text-stone-400 mb-1">
           Farmaco
         </label>
         {selectedDrug ? (
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/40 px-3 py-1.5 text-sm font-medium text-blue-800 dark:text-blue-300">
+            <span className="inline-flex items-center rounded-full bg-teal-50 dark:bg-teal-900/20 px-3 py-1.5 text-sm font-medium text-teal-700 dark:text-teal-400">
               {selectedDrug.name}
               <button
                 type="button"
                 onClick={handleClearDrug}
-                className="ml-1 inline-flex min-w-[44px] min-h-[44px] items-center justify-center rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 focus:outline-none"
+                className="ml-1 inline-flex min-w-[44px] min-h-[44px] items-center justify-center rounded-full hover:bg-teal-200 dark:hover:bg-teal-800 focus:outline-none"
                 aria-label={`Quitar ${selectedDrug.name}`}
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -147,7 +147,7 @@ export default function DosagePage() {
       <div className="mb-4">
         <label
           htmlFor="weight-input"
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+          className="block text-[13px] font-medium text-stone-500 dark:text-stone-400 mb-1"
         >
           Peso del paciente (kg)
         </label>
@@ -158,7 +158,7 @@ export default function DosagePage() {
           value={weightStr}
           onChange={handleWeightChange}
           placeholder="Ej: 70"
-          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-base text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+          className="w-full px-3.5 py-2.5 border border-stone-200 dark:border-stone-700 rounded-xl bg-white dark:bg-stone-800/60 text-[15px] text-stone-800 dark:text-stone-200 placeholder:text-stone-400 dark:placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-400 dark:focus:ring-teal-500/30 dark:focus:border-teal-600 transition-shadow"
           style={{ minHeight: '44px' }}
         />
       </div>
@@ -166,7 +166,7 @@ export default function DosagePage() {
       {/* Context selector pills */}
       {selectedDrug && availableContexts.length > 0 && (
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label className="block text-[13px] font-medium text-stone-500 dark:text-stone-400 mb-2">
             Contexto clinico
           </label>
           <div className="flex flex-wrap gap-2">
@@ -175,10 +175,10 @@ export default function DosagePage() {
                 key={ctx}
                 type="button"
                 onClick={() => setSelectedContext(ctx)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 ${
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500/40 ${
                   selectedContext === ctx
-                    ? 'bg-blue-600 text-white dark:bg-blue-500'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    ? 'bg-teal-600 text-white dark:bg-teal-600'
+                    : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-700'
                 }`}
                 style={{ minHeight: '44px' }}
               >
@@ -202,7 +202,7 @@ export default function DosagePage() {
               />
             ))
           ) : (
-            <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/30 p-4">
+            <div className="rounded-xl bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 p-4">
               <p className="text-sm text-amber-800 dark:text-amber-300">
                 No hay datos de dosis para este contexto. Verificar manualmente.
               </p>
@@ -213,13 +213,13 @@ export default function DosagePage() {
 
       {/* Prompt to enter data */}
       {!selectedDrug && (
-        <div className="mt-8 text-center text-sm text-gray-400 dark:text-gray-500">
+        <div className="mt-8 text-center text-sm text-stone-400 dark:text-stone-500">
           Seleccione un farmaco para ver las dosis recomendadas.
         </div>
       )}
 
       {selectedDrug && weight == null && (
-        <div className="mt-8 text-center text-sm text-gray-400 dark:text-gray-500">
+        <div className="mt-8 text-center text-sm text-stone-400 dark:text-stone-500">
           Ingrese el peso del paciente para calcular las dosis.
         </div>
       )}

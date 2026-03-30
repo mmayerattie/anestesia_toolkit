@@ -77,14 +77,14 @@ const categoryColors: Record<string, string> = {
 function getCategoryClasses(category: string): string {
   return (
     categoryColors[normalize(category)] ??
-    'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600'
+    'bg-stone-100 text-stone-800 dark:bg-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-600'
   )
 }
 
 function getCategoryPillClass(category: string, active: boolean): string {
   const base = getCategoryClasses(category)
   if (active) {
-    return `${base} ring-2 ring-offset-1 ring-blue-500 dark:ring-blue-400 dark:ring-offset-gray-900 border`
+    return `${base} ring-2 ring-offset-1 ring-teal-500 dark:ring-teal-400 dark:ring-offset-stone-900 border`
   }
   return `${base} border opacity-75 hover:opacity-100`
 }
@@ -95,11 +95,11 @@ function getCategoryPillClass(category: string, active: boolean): string {
 
 function PharmacoItem({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 px-3 py-2">
-      <dt className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wide">
+    <div className="rounded-lg bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800 px-3 py-2">
+      <dt className="text-[11px] font-medium text-stone-400 dark:text-stone-500 uppercase tracking-wide">
         {label}
       </dt>
-      <dd className="mt-0.5 text-sm font-medium text-gray-800 dark:text-gray-100">
+      <dd className="mt-0.5 text-sm font-medium text-stone-800 dark:text-stone-100">
         {value}
       </dd>
     </div>
@@ -117,7 +117,7 @@ function DrugDetail({ card, onBack }: { card: DrugCard; onBack: () => void }) {
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-1.5 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-5 focus:outline-none focus:underline"
+        className="inline-flex items-center gap-1.5 text-sm text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 mb-5 focus:outline-none focus:underline"
         style={{ minHeight: '44px' }}
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -128,7 +128,7 @@ function DrugDetail({ card, onBack }: { card: DrugCard; onBack: () => void }) {
 
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+        <h2 className="text-2xl font-bold text-stone-800 dark:text-stone-100">
           {card.name}
         </h2>
         <span
@@ -140,7 +140,7 @@ function DrugDetail({ card, onBack }: { card: DrugCard; onBack: () => void }) {
 
       {/* Farmacocinética */}
       <section className="mb-6">
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">
+        <h3 className="text-[11px] font-semibold uppercase tracking-widest text-stone-400 dark:text-stone-500 mb-3">
           Farmacocinetica
         </h3>
         <dl className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -155,22 +155,22 @@ function DrugDetail({ card, onBack }: { card: DrugCard; onBack: () => void }) {
       {/* Dilución y preparación — visually prominent */}
       {card.dilutions.length > 0 && (
         <section className="mb-6">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-3">
+          <h3 className="text-[11px] font-semibold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-3">
             Dilucion y preparacion
           </h3>
           <div className="space-y-3">
             {card.dilutions.map((dil, i) => (
               <div
                 key={i}
-                className="rounded-xl border-2 border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/50 p-4"
+                className="rounded-xl border-2 border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950/30 p-4"
               >
-                <p className="font-semibold text-blue-900 dark:text-blue-100 text-sm mb-1.5">
+                <p className="font-semibold text-teal-900 dark:text-teal-100 text-sm mb-1.5">
                   {dil.description}
                 </p>
-                <p className="text-sm text-blue-700 dark:text-blue-300 mb-2">
+                <p className="text-sm text-teal-700 dark:text-teal-300 mb-2">
                   <span className="font-medium">Concentracion:</span> {dil.concentration}
                 </p>
-                <div className="rounded-lg bg-blue-100/70 dark:bg-blue-900/50 px-3 py-2.5 text-sm text-blue-800 dark:text-blue-200 leading-relaxed">
+                <div className="rounded-lg bg-teal-100/50 dark:bg-teal-900/30 px-3 py-2.5 text-sm text-teal-800 dark:text-teal-200 leading-relaxed">
                   {dil.commonPreparation}
                 </div>
               </div>
@@ -182,7 +182,7 @@ function DrugDetail({ card, onBack }: { card: DrugCard; onBack: () => void }) {
       {/* Contraindicaciones */}
       {card.contraindications.length > 0 && (
         <section className="mb-6">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-red-600 dark:text-red-400 mb-3">
+          <h3 className="text-[11px] font-semibold uppercase tracking-widest text-red-600 dark:text-red-400 mb-3">
             Contraindicaciones
           </h3>
           <div className="rounded-xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 p-4">
@@ -198,7 +198,7 @@ function DrugDetail({ card, onBack }: { card: DrugCard; onBack: () => void }) {
       {/* Precauciones */}
       {card.precautions.length > 0 && (
         <section className="mb-6">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-3">
+          <h3 className="text-[11px] font-semibold uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-3">
             Precauciones
           </h3>
           <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4">
@@ -214,14 +214,14 @@ function DrugDetail({ card, onBack }: { card: DrugCard; onBack: () => void }) {
       {/* Tips clínicos */}
       {card.clinicalPearls.length > 0 && (
         <section className="mb-6">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-3">
+          <h3 className="text-[11px] font-semibold uppercase tracking-widest text-stone-400 dark:text-stone-500 mb-3">
             Tips clinicos
           </h3>
-          <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/60 p-4">
+          <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/60 p-4">
             <ul className="space-y-2.5">
               {card.clinicalPearls.map((tip, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-sm text-gray-700 dark:text-gray-300">
-                  <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xs font-bold">
+                <li key={i} className="flex items-start gap-2.5 text-sm text-stone-700 dark:text-stone-300">
+                  <span className="shrink-0 mt-0.5 w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center text-teal-600 dark:text-teal-400 text-xs font-bold">
                     {i + 1}
                   </span>
                   <span className="leading-relaxed">{tip}</span>
@@ -233,8 +233,8 @@ function DrugDetail({ card, onBack }: { card: DrugCard; onBack: () => void }) {
       )}
 
       {/* Referencia */}
-      <footer className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-6">
-        <p className="text-xs text-gray-400 dark:text-gray-500">
+      <footer className="border-t border-stone-100 dark:border-stone-800 pt-4 mt-6">
+        <p className="text-[11px] text-stone-400 dark:text-stone-500">
           <span className="font-medium">Fuente:</span> {card.reference}
         </p>
       </footer>
@@ -304,10 +304,10 @@ export default function VademecumPage() {
     <div className="max-w-4xl mx-auto space-y-5">
       {/* Header */}
       <div>
-        <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+        <h1 className="text-xl font-bold text-stone-800 dark:text-stone-100">
           Vademecum anestesico
         </h1>
-        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+        <p className="mt-1 text-sm text-stone-400 dark:text-stone-500">
           Fichas de referencia rapida de farmacos anestesicos.
         </p>
       </div>
@@ -330,7 +330,7 @@ export default function VademecumPage() {
               key={cat}
               type="button"
               onClick={() => handleCategoryToggle(cat)}
-              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 ${getCategoryPillClass(cat, isActive)}`}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 ${getCategoryPillClass(cat, isActive)}`}
               style={{ minHeight: '44px' }}
               aria-pressed={isActive}
             >
@@ -342,7 +342,7 @@ export default function VademecumPage() {
           <button
             type="button"
             onClick={() => setActiveCategory(null)}
-            className="rounded-full px-3 py-1.5 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+            className="rounded-full px-3 py-1.5 text-xs font-medium bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-300 hover:bg-stone-300 dark:hover:bg-stone-600 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400"
             style={{ minHeight: '44px' }}
           >
             Limpiar filtro
@@ -362,8 +362,8 @@ export default function VademecumPage() {
           ))}
         </div>
       ) : (
-        <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8 text-center">
-          <p className="text-sm text-gray-400 dark:text-gray-500">
+        <div className="rounded-xl bg-white dark:bg-[#1a1b25] shadow-sm shadow-stone-200/40 dark:shadow-black/20 p-8 text-center">
+          <p className="text-sm text-stone-400 dark:text-stone-500">
             No se encontraron farmacos
             {activeCategory ? ` en la categoria "${activeCategory}"` : ''}.
           </p>
